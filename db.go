@@ -7,10 +7,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type Item struct {
-	gorm.Model
-	Name string `json:"name"`
-}
+var db *gorm.DB
 
 func ConnectDB() *gorm.DB {
 	var DB *gorm.DB
