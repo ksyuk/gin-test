@@ -9,8 +9,7 @@ import (
 
 var db *gorm.DB
 
-func ConnectDB() *gorm.DB {
-	var DB *gorm.DB
+func ConnectDB() {
 
 	DSN := fmt.Sprintf(
 		"%s:%s@tcp(%s)/%s?charset=utf8mb4&interpolateParams=true&parseTime=True&loc=Local",
@@ -18,7 +17,7 @@ func ConnectDB() *gorm.DB {
 		// "localuser", "localpass", "db", "localdb")
 
 	err := error(nil)
-	DB, err = gorm.Open(mysql.Open(DSN), &gorm.Config{})
+	_, err = gorm.Open(mysql.Open(DSN), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}
