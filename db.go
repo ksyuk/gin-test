@@ -22,6 +22,11 @@ func ConnectDB() *gorm.DB {
 	if err != nil {
 		panic(err)
 	}
+}
 
-	return DB
+func migrate () {
+	err := db.AutoMigrate(&User{}, &Item{})
+	if err != nil {
+		panic(err)
+	}
 }
