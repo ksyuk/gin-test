@@ -8,7 +8,6 @@ import (
 func TestGetItem(t *testing.T) {
     t.Run("Get Item", func(t *testing.T) {
         // Connect to the database
-        db := ConnectDB()
         item, err := getItem(db, "1")
         assert.Nil(t, err)
         assert.Equal(t, item.Name, "CIO")
